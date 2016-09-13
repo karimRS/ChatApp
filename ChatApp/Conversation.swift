@@ -1,5 +1,5 @@
 //
-//  Conversations.swift
+//  Conversation.swift
 //  ChatApp
 //
 //  Created by Karim on 12/09/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Conversations: NSObject {
+class Conversation: NSObject {
     
     private(set) var name: String
     
@@ -18,27 +18,27 @@ class Conversations: NSObject {
     
 }
 
-class Users {
-    private static let sharedInstance = Users()
-    private var users = [User]()
+class Conversations {
+    private static let sharedInstance = Conversations()
+    private var conversations = [Conversation]()
     
-    class func countUser() -> Int {
-        return sharedInstance.users.count
+    class func countConversations() -> Int {
+        return sharedInstance.conversations.count
     }
     
-    class func getUserFromIndexPath(indexPath: NSIndexPath) -> User? {
-        if 0 > indexPath.row || indexPath.row > sharedInstance.users.count {
+    class func getConversationFromIndexPath(indexPath: NSIndexPath) -> Conversation? {
+        if 0 > indexPath.row || indexPath.row > sharedInstance.conversations.count {
             return nil
         }
-        return sharedInstance.users[indexPath.row]
+        return sharedInstance.conversations[indexPath.row]
     }
     
-    class func addUser(user: User) {
-        sharedInstance.users.append(user)
+    class func addConversation(conversation: Conversation) {
+        sharedInstance.conversations.append(conversation)
     }
     
-    class func resetUsers() {
-        sharedInstance.users = [User]()
+    class func resetConversations() {
+        sharedInstance.conversations = [Conversation]()
     }
 }
 
